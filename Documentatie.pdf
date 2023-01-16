@@ -1,0 +1,62 @@
+FLAPPY CAT
+Darie Alexandru
+<Faculty of Automatic Control and Computer Engineering, Iasi>
+alexandru.darie@student.tuiasi.ro
+alex.darie.cpp@gmail.com
+2020
+
+ 
+
+Gameplay: 
+	Single player campaigns where the player must survive as long as possible by dodging the enemies. Gameplay involves strategically, accurate jumps in order to dive through the enemies. By gathering enough coins, the player can change the characters they are playing with, each one having different powers . As soon as the player collides with an enemy, they will fall from the sky resulting in a GAME OVER, therefore they must be cautious about where they position themselves in order to have time to dodge the enemies. To gather more coins, there are power-ups that multiply the coins value exponentially. Depending on the skill-level the player has, they can select between 3 difficulties: easy, medium, hard.
+
+Plot:
+	The action takes place in a world where the planet is mostly populated by dogs and cats. To avoid conflicts between the two races, the world had two leaders, a dog and a cat. One day, the dogs started an economic revolt accusing the cats of abuse of power. This revolt led to an economic crisis against cats. Now, in the world where cats are suppressed by dogs, a group of cat-friends that were gifted the power of flying have decided that they have to fix this by gathering as much money as they can while avoiding Security-Dogs propelld by jetpacks.
+
+Characters:
+
+ 	Eevee is one of the main protagonists and player-character. She is portrayed as the playful and loving cat that took the first step to fix the economic crysis. Her white fur makes the enemies hard to distinguish her from the rest of the clouds.
+
+  Quinn is Eevee's best friend , main protagonist and a playable-character. Everyone describes Quinn as a calm, soft and gratefull cat. As silent, as revengeful she is. No one saw her upset, but those who saw her are no longer between us.
+
+        Mittens is a playable-character. He is the youngest of the group, most of the times described as shy, clueless and goofy. Mittens used to work in a bread factory, he got fired since the revolt but he is ready to prove his innocence.
+ 	Cool Mittens is just a glow-up of mittens, he became confident and gave up the dream of proving his innocence. He is ready to kick some Dogs-Butt!
+
+ Security-Dogs are enemies, they are not playable. Their task is to stop the cats from recovering. Some of them don't want to harm anyone so they move slowly and cautious. They work for Mr. Dogssident.
+
+
+
+
+Mechanics (turns, game points, user interaction, keys ):
+
+Keys:
+	Players can jump (fly) by pressing SPACE-BAR or UP-ARROW. Jumping is not spammable, therefore by holding one of the jumping keys the player will jump at a regular time interval. By pressing the ESC button, players can quit the game.
+
+User Interaction:
+	The user can acces the shop by pressing the COSMETICS button portrayed as a t-shirt.
+ 
+They can PICK or BUY different characters depending of the money they gathered by playing.
+   
+
+	DIFFICULTY:
+		By pressing the third button from the main menu, users can select the difficulty of the game.
+
+  EASY DIFFICULTY WILL ONLY SUMMON 2 DOGS
+ MEDIUM DIFFICULTY WILL SUMMON 4 DOGS
+ HARD DIFFICULTY WILL SUMMON 6 DOGS
+
+	Turns:
+		If  the player clicks on the middle button (representing the "START" button), the game will start. As soon as it starts, the player has to survive as long as possible. After their inevitable death, they can choose between trying again or go back to the MAIN MENU.
+
+
+CREDITS TO:
+Like A Dino - Original Soundtrack   - (Sample) Background Music
+u/-SweetAvery- - (remixed) Difficultiy Icons 
+https://www.reddit.com/r/geometrydash/comments/pahw7b/i_made_each_difficulty_face_in_pixel_art_should_i/
+
+
+THIS PROJECT IS NOT FOR COMMERCIAL USE NOR MAKE ANY KIND OF INCOME FROM IT
+
+
+
+

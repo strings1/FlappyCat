@@ -6,8 +6,15 @@
 
 //class->objext
 
+class obj_interface
+{
+public:
+	virtual void setdest_y(int y)=0;
+	virtual void Center(SDL_Rect)=0;
+	virtual void setdest_x(int x)=0;
+};
 
-class Object {
+class Object: public obj_interface {
 private:
 
 	

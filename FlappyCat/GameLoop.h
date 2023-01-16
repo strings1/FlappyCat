@@ -12,8 +12,8 @@
 #include "Block.h"
 #include "Catalog.h"
 #include "Items.h"
-
-
+#include <SDL_ttf.h>
+#include "Font.h"
 class GameLoop {
 private:
 	bool _GameState;
@@ -23,7 +23,7 @@ private:
 	background bg1;
 	background bg2;
 	Player playr;
-
+	//SDL_Color font_color = { 167, 3, 255 };
 //	Catalog<item> catalog();
 
 
