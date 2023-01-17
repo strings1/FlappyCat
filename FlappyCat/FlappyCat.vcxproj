@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\SDL2-vc\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDL2-vc\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\SDL2_image\include;C:\SDL2_ttf\include;C:\SDL2-vc\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL2_image\lib\x64;C:\SDL2_ttf\lib\x64;C:\SDL2-vc\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -123,7 +123,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2main.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2main.lib;winmm.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Fonts.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Catalog.h" />
     <ClInclude Include="Definers.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="Entity.h" />

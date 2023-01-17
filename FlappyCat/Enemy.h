@@ -26,4 +26,5 @@ public:
 	friend bool vitdif(int speed, enemy* v, int n);
 	void setHitbox(int x, int y);
 	SDL_Rect& get_hbox() {return Hitbox;}
+	void setdest_x(int x);
 };

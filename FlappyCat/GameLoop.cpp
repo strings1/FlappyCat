@@ -1,11 +1,13 @@
 
 #include "Gameloop.h"
 #include "Definers.h"
+#include <cstring>
 #include <fstream>
+#include <string.h>
+ 
 using namespace std;
 static bool started = false;
 static bool inShop = false;
-
 block logo(0,0,500,250,SCREEN_W/2-(LogoSize_W/2),SCREEN_H/6,LogoSize_W,LogoSize_H);
 block unlocked(0, 0, 32, 32, 0, 0, 300, 300);
 block locked(0, 0, 32, 32, 0, 0, 300, 300);
@@ -14,6 +16,10 @@ block selected(0, 0, 64, 32, 0, 0, 0, 0);
 block quinn(0,0,40,64,0,0,80,128);
 block eevee(0,0,30,64,0,0,80,128);
 block elgato(0,0,30,64,0,0,80,128);
+block coolelgato(0, 0, 30, 64, 0, 0, 80, 128);
+
+SDL_Color color = { 167, 3, 255 };
+TEXT ScoreText(color,25);
 
 //BUTOANELE:
 Button start_button(0, 0, 32, 32,
@@ -43,6 +49,7 @@ switching_button difficulty(0,0,38,38, start_button.get_dest().x + (ButtonSize +
     ButtonSize, ButtonSize,3);// OFFSET 50 dreapta
 
 //-------------------------------------------
+
 
 Catalog<item> catalog_pisici("prop/catalog_prop.txt");
 size_t nr_dogs_byDifficulty = 3 + 3 * difficulty.timesclicked() % difficulty.get_nr_buttons();
@@ -94,13 +101,18 @@ void GameLoop::SaveProgress(const char* scoretxt, const char* catalogtxt)
 
 void GameLoop::Initialize() {
 	SDL_Init(SDL_INIT_EVERYTHING);
+    TTF_Init();
 	_window = SDL_CreateWindow("Flappy Cat", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_W, SCREEN_H, 0);
 	if (_window) {
 
 		_renderer = SDL_CreateRenderer(_window, -1, 0);
 		if (_renderer) {
 
-			cout << "Initializare texturi...\n";
+            cout << "Initializare texturi...\n";
+            //TEXT:
+            ScoreText.initialize("FFFFORWA.ttf");
+            ScoreText.setText(_renderer, "Scorul tau este: ");
+
             //Essential STUFF----------------------------
             playr.CreateTexture("Sprites/pixeevee.png", _renderer);
             bg1.CreateTexture("Sprites/background.png", _renderer);
@@ -123,7 +135,7 @@ void GameLoop::Initialize() {
             difficulty.load_button_i(2, _renderer, "Sprites/pixdemon.png", "Sprites/h_pixdemon.png", "Sprites/p_pixdemon.png");
             difficulty.load_button_i(0, _renderer, "Sprites/easy.png", "Sprites/h_easy.png", "Sprites/p_easy.png");
            
-
+            //FONT:
 
             //MOVING STUFF
             coinmul.LoadFrames(_renderer);
@@ -145,6 +157,7 @@ void GameLoop::Initialize() {
 
             elgato.CreateTexture("Sprites/pixelgato.png", _renderer);
 
+            coolelgato.CreateTexture("Sprites/pixelgatocool.png", _renderer);
             //--------------
 
             //background = TextureManager::Texture("Sprites/background.png",_renderer);
@@ -182,7 +195,6 @@ void GameLoop::Render(void) //Daca avem animatii, trebuie sa dam clear si dupa s
         }
     }
     else Menu();
-    
 
 	SDL_RenderPresent(_renderer);
 }
@@ -192,6 +204,9 @@ void GameLoop::Clear()
     //Se sterge mai intai rendererul si dupa nu mai pot sa sterg texturile??
     //This is a fix I think. not sure;
     size_t i;
+
+    //Text:
+    ScoreText.destroy();
     //blocks:
     SDL_DestroyTexture(*eevee.get_texture());
     SDL_DestroyTexture(*quinn.get_texture());
@@ -335,6 +350,7 @@ void GameLoop::Menu()
             playr.respawn();
             playr.godtime_s = SDL_GetTicks64();
         }
+
         if (cosmetic_button.clicked())
         {
             inShop = true;
@@ -408,10 +424,12 @@ void GameLoop::InitShopValues(Catalog<item>& p)
     p[1]->setTex(quinn.get_texture());
     p[1]->setSource(0, 0, 40, 64);
     p[2]->setTex(elgato.get_texture());
+    p[3]->setTex(coolelgato.get_texture());
 }
 
 void GameLoop::Shop()
 {
+    char text[100];
     int left, center, right; //Daca scad o valoare din unsigned, nu se duce pe 0xFFFFFFFFFF..
     SDL_Rect temp;
     //item* temp;
@@ -573,7 +591,13 @@ void GameLoop::Shop()
     catalog_pisici.right = right % catalog_pisici.getsize();
     catalog_pisici.center = center % catalog_pisici.getsize();
 
-
+    strcpy_s(text,100, "Scorul tau este: ");
+    char* scrtext = new char[100];
+    _itoa_s(playr.GetScore(), scrtext,100, 10);
+    strcat_s(text, 100,scrtext );
+    ScoreText.setText(_renderer, text);
+    free(scrtext);
+    ScoreText.Render(_renderer);
     //cout << left << " " << center << " " << right << endl;
 
 }

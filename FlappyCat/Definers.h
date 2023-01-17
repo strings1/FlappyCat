@@ -5,7 +5,7 @@
 #define NOT_RUNNING 0
 
 //SIZE
-#define ITEMS_NR 3
+#define ITEMS_NR 4
 #define ButtonSize 150
 #define LogoSize_W 500
 #define LogoSize_H 250

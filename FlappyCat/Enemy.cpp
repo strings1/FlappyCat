@@ -75,3 +75,9 @@ void enemy::Update(enemy* v,size_t index_enemy)
 	setHitbox(this->get_dest().x + 30, this->get_dest().y + 30);
 
 }
+
+void enemy::setdest_x(int x)
+{
+	this->Object::setdest_x(x);
+	this->setHitbox(this->get_dest().x + 30, this->get_dest().y + 30);
+}

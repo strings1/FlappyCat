@@ -48,6 +48,7 @@ int main(int argc, char* args[])
 	fclose(Score_File_in);
 	game->SaveProgress("prop/score.txt","prop/catalog_prop.txt");
 	delete[] game;
+	TTF_Quit();
 	SDL_Quit();
 	return 0;
 }
