@@ -8,10 +8,10 @@ class enemy : public Object
 private:
 	int speed;
 	unsigned short int nextPos; //after death
-	SDL_Rect Hitbox;
+	//SDL_Rect Hitbox;
 
 public:
-
+	SDL_Rect Hitbox;
 	void Render(SDL_Renderer* renderer, SDL_Texture* Tex, SDL_Rect src, SDL_Rect dest);
 	void Update(enemy* v, size_t index_enemy);
 	enemy()
