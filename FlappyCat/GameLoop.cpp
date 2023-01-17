@@ -184,7 +184,7 @@ void GameLoop::Render(void) //Daca avem animatii, trebuie sa dam clear si dupa s
         playr.Render(_renderer, *playr.get_texture(), playr.get_src(), playr.get_dest());
         for (i = 0; i < maxnum; i++)
         {
-            if (i < num_of_dogs)
+            if (i < nr_dogs_byDifficulty)
                 dogs[i].Render(_renderer, *dogs[i].get_texture(), dogs[i].get_src(), dogs[i].get_dest());
             if (i < num_of_coins)
                 coin[i].Render(_renderer, *coin[i].get_texture(), coin[i].get_src(), coin[i].get_dest());
@@ -340,8 +340,12 @@ void GameLoop::Menu()
             nr_dogs_byDifficulty = 2 + 2 * (difficulty.timesclicked() % difficulty.get_nr_buttons());
             cout << "O sa spawnez " << nr_dogs_byDifficulty << " Caini!\n";
             maxnum = (num_of_coins > nr_dogs_byDifficulty) ? num_of_coins : nr_dogs_byDifficulty;
-            for (size_t i = 0; i < num_of_dogs; i++)
-                dogs[i].setdest_x(-Enemy_W);
+            for (size_t x = 0; x < num_of_dogs; x++)
+            {
+                dogs[x].setdest_x(1200);
+                dogs[x].Hitbox.w = dogs[x].get_hbox().w / 2;
+                dogs[x].Hitbox.h = dogs[x].get_hbox().h / 2;
+            }
         }
         if (start_button.clicked())
         {
@@ -399,7 +403,7 @@ void GameLoop::Retry()
             playr.resetJGAA();
             for (size_t i = 0; i < maxnum; i++)
             {
-                if (i < num_of_dogs)
+                if (i < nr_dogs_byDifficulty)
                     dogs[i].setdest_x(-Enemy_W);
                 if (i < num_of_coins)
                     coin[i].setdest_x(-COIN_SIZE);
